@@ -20,6 +20,14 @@ Route::get('/lotes/{id}', [LoteController::class, 'getPropiedadById']);
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);
 
+    Route::get('/', [UsuarioController::class, 'getUsuarios']);
+    Route::get('/{id}', [UsuarioController::class, 'getUsuarioById']);
+    Route::post('/', [UsuarioController::class, 'createUsuario']);
+    Route::put('/{id}', [UsuarioController::class, 'updateUsuarioById']);
+    Route::delete('/{id}', [UsuarioController::class, 'deleteUsuarioById']);
+        
+        
+
     Route::get('/user', function (Request $request) {
         return response()->json([
             'user' => [
